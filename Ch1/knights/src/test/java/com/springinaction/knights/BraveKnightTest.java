@@ -13,7 +13,7 @@ public class BraveKnightTest {
 
         Quest mockQuest = mock(Quest.class);
 
-        BraveKnight knight = new BraveKnight(mockQuest, );
+        BraveKnight knight = new BraveKnight(mockQuest,new Minstrel() );
         knight.embarkOnQuest();
         verify(mockQuest,times(1)).embark();
     }
