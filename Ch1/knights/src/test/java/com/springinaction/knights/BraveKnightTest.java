@@ -5,9 +5,7 @@ import com.springinaction.quests.Quest;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
-/**
- * Created by Edson on 22/11/2016.
- */
+
 public class BraveKnightTest {
 
     @Test
