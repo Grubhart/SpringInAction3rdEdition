@@ -10,4 +10,5 @@
 
     <bean id="sonet29" class="com.springInAction.springIdol.Sonet29"/>
 
+    <bean id="stage" class="com.springInAction.springIdol.Stage" factory-method="getInstance"/>
 </beans>
