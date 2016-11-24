@@ -3,7 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="duke" class="com.springInAction.springIdol.Juggler"/>
+    <bean id="duke" class="com.springInAction.springIdol.PoeticJuggler">
+        <constructor-arg value="15"/>
+        <constructor-arg name="poem" ref="sonet29"/>
+    </bean>
 
+    <bean id="sonet29" class="com.springInAction.springIdol.Sonet29"/>
 
 </beans>
