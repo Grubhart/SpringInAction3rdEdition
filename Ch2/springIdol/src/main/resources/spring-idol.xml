@@ -19,7 +19,15 @@
         <property name="instrument" ref="saxophone"/>
     </bean>
 
-    <bean id="saxophone" class="com.springInAction.springIdol.Saxophone">
+    <bean id="saxophone" class="com.springInAction.springIdol.Saxophone"/>
+    <bean id="piano" class="com.springInAction.springIdol.Piano"/>
 
+    <bean id="hank" class="com.springInAction.springIdol.OneManBand">
+        <property name="instruments">
+            <list>
+                <ref bean="saxophone"/>
+                <ref bean="piano"/>
+            </list>
+        </property>
     </bean>
 </beans>
