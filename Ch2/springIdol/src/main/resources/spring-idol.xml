@@ -29,5 +29,12 @@
                 <ref bean="piano"/>
             </list>
         </property>
+
+        <property name="mapInstrument">
+            <map>
+                <entry key="SAXO" value-ref="saxophone"/>
+                <entry key="PIANO" value-ref="piano"/>
+            </map>
+        </property>
     </bean>
 </beans>
