@@ -13,5 +13,6 @@ public class SpringIdolMain {
 
         performer = (Instrumentalist)ctx.getBean("kenny");
         performer.perform();
+
     }
 }

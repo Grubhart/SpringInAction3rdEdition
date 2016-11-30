@@ -1,7 +1,7 @@
 package com.springInAction.springIdol;
 
 
-public interface Poem {
+public interface Poem  {
 
     void recite();
 }

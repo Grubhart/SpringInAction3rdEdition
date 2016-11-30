@@ -13,6 +13,7 @@
     <bean id="stage" class="com.springInAction.springIdol.Stage" factory-method="getInstance"/>
 
     <bean id="ticket" class="com.springInAction.springIdol.Ticket" scope="prototype"/>
+
     <bean id="kenny" class="com.springInAction.springIdol.Instrumentalist">
         <property name="song" value="Jingle bells"/>
         <property name="instrument" ref="saxophone"/>

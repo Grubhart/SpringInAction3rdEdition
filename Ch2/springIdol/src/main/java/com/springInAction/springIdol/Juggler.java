@@ -1,8 +1,6 @@
 package com.springInAction.springIdol;
 
-/**
- * Created by Edson on 24/11/2016.
- */
+
 public class Juggler implements Performer{
 
     private int beanBangs = 3;
