@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="duke" class="com.springInAction.springIdol.PoeticJuggler" autowire="constructor"/>
+
+    <bean id="sonet29" class="com.springInAction.springIdol.Sonet29"/>
+    <bean id="stage" class="com.springInAction.springIdol.Stage" factory-method="getInstance"/>
+
+    <bean id="ticket" class="com.springInAction.springIdol.Ticket" scope="prototype"/>
+
+    <bean id="kenny" class="com.springInAction.springIdol.Instrumentalist">
+        <property name="song" value="Jingle bells"/>
+        <property name="instrument" ref="saxophone"/>
+    </bean>
+
+    <bean id="saxophone" class="com.springInAction.springIdol.Saxophone"/>
+    <bean id="piano" class="com.springInAction.springIdol.Piano"/>
+
+    <bean id="hank" class="com.springInAction.springIdol.OneManBand">
+        <property name="instruments">
+            <list>
+                <ref bean="saxophone"/>
+                <ref bean="piano"/>
+            </list>
+        </property>
+
+        <property name="mapInstrument">
+            <map>
+                <entry key="SAXO" value-ref="saxophone"/>
+                <entry key="PIANO" value-ref="piano"/>
+            </map>
+        </property>
+    </bean>
+</beans>
