@@ -14,13 +14,13 @@
 
     <bean id="ticket" class="com.springInAction.springIdol.Ticket" scope="prototype"/>
 
-    <bean id="kenny" class="com.springInAction.springIdol.Instrumentalist">
+    <bean id="kenny" class="com.springInAction.springIdol.Instrumentalist" autowire="byType">
         <property name="song" value="Jingle bells"/>
-        <property name="instrument" ref="saxophone"/>
+
     </bean>
 
-    <bean id="saxophone" class="com.springInAction.springIdol.Saxophone"/>
-    <bean id="piano" class="com.springInAction.springIdol.Piano"/>
+    <bean id="saxophone" class="com.springInAction.springIdol.Saxophone" primary="false"/>
+    <bean id="piano" class="com.springInAction.springIdol.Piano" primary="true"/>
 
     <bean id="hank" class="com.springInAction.springIdol.OneManBand">
         <property name="instruments">
