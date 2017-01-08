@@ -32,7 +32,7 @@ public class SimpleJdbcTemplateSpitterDao extends SimpleJdbcDaoSupport {
                             spitter.getUsername(),
                             spitter.getPassword(),
                             spitter.getFullname(),
-                            spitter.getEmail(),`
+                            spitter.getEmail(),
                             spitter.isUpdatedByEmail());
         spitter.setId(queryForIdentity());
 
