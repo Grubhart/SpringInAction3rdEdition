@@ -14,10 +14,9 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-@Repository
-public class SimpleJdbcTemplateSpitterDao extends SimpleJdbcDaoSupport {
 
-    private JdbcTemplate jdbcTemplate;
+public class SimpleSpitterDao extends SimpleJdbcDaoSupport {
+
 
     private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, update_by_email) values (?, ?, ?, ?, ?)";
     private static final String SQL_NAMED_INSERT_SPITTER = " insert into spitter (username, password, fullname ) values ( :username, :password,: fullname)";
@@ -28,7 +27,7 @@ public class SimpleJdbcTemplateSpitterDao extends SimpleJdbcDaoSupport {
 
     public void addSpitter(Spitter spitter){
 
-        jdbcTemplate.update(SQL_INSERT_SPITTER,
+        getSimpleJdbcTemplate().update(SQL_INSERT_SPITTER,
                             spitter.getUsername(),
                             spitter.getPassword(),
                             spitter.getFullname(),
@@ -47,7 +46,7 @@ public class SimpleJdbcTemplateSpitterDao extends SimpleJdbcDaoSupport {
         params.put("password",spitter.getPassword());
         params.put("fullname",spitter.getFullname());
 
-        jdbcTemplate.update(SQL_NAMED_INSERT_SPITTER,params);
+        getSimpleJdbcTemplate().update(SQL_NAMED_INSERT_SPITTER,params);
         spitter.setId(queryForIdentity());
     }
 
@@ -57,7 +56,7 @@ public class SimpleJdbcTemplateSpitterDao extends SimpleJdbcDaoSupport {
     }
 
     public Spitter getSpitterById(long id){
-        return jdbcTemplate.queryForObject(SQL_SELECT_SPITTER_BY_ID, new ParameterizedRowMapper<Spitter>() {
+        return getSimpleJdbcTemplate().queryForObject(SQL_SELECT_SPITTER_BY_ID, new ParameterizedRowMapper<Spitter>() {
             public Spitter mapRow(ResultSet resultSet, int rowNumber) throws SQLException {
 
                 Spitter spitter = new Spitter();
