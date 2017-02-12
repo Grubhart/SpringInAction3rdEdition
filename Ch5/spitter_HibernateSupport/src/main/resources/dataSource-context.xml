@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+
+  <context:component-scan base-package="com.habuma.spitter.persistence"/>
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>
+
+  <bean id="dataSource"
+        class="org.apache.commons.dbcp2.BasicDataSource">
+    <property name="driverClassName" value="org.hsqldb.jdbc.JDBCDriver"/>
+    <property name="url" value="jdbc:hsqldb:hsql://localhost/spitter/spitter"/>
+    <property name="username" value="sa"/>
+    <property name="password" value=""/>
+    <property name="maxTotal" value="10"/>
+  </bean>
+
+<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="packagesToScan">
+        <list>
+            <value>com.habuma.spitter.domain</value>
+        </list>
+    </property>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="dialect">org.hibernate.dialect.HSQLDialect</prop>
+      </props>
+    </property>
+</bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--  enable the configuration of transactional behavior based on annotations  -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+
+
+</beans>
