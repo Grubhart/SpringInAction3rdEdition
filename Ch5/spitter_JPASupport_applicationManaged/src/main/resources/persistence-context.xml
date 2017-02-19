@@ -12,6 +12,7 @@
   <context:component-scan base-package="com.habuma.spitter.persistence"/>
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>
 
+
     <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="spitterPU"/>
     </bean>
@@ -26,6 +27,12 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- optional: you need declare PersistenceAnnotationBeanPostProcessor
+         in order to enable emf injection, but PersistenceAnnotationBeanPostProcessor
+         transparently activated by the <context:component-scan /> element.        -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <bean class= "org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
 
 </beans>
