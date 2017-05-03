@@ -12,7 +12,7 @@ public class Sonet29 implements Poem {
             "And lookup on myself and curse my fate,",
             "Wishing me like to one more rich in hope,",
             "Featured like him,like him with friends possess'd,",
-            "Desiring this man's art and that man's scope,",
+            "Desiring this man's art and tthat man's scope,",
             "With what I most enjoy contented least;",
             "Yet in these thoughts myself almost despising,",
             "Haply I think on thee,and then my state,",
