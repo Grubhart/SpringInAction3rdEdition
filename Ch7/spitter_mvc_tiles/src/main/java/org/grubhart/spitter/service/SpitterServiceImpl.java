@@ -1,6 +1,7 @@
 package org.grubhart.spitter.service;
 
 import org.grubhart.spitter.domain.Spittle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

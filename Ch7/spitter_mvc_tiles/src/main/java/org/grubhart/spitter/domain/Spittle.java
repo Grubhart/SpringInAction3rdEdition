@@ -9,18 +9,14 @@ private String text;
 private Date when;
 
 public Spittle() {
-        this.setId((long)1);
         this.spitter = new Spitter();  // HARD-CODED FOR NOW
         this.spitter.setId((long)1);
-        this.setWhen(new Date(System.currentTimeMillis()));
         }
 
 public Spittle(String text) {
         this();
         this.text = text;
     }
-
-
 
     public Long getId() {
         return this.id;
