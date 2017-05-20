@@ -56,5 +56,12 @@
             <version>1.2</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>springRelease</id>
+            <name>Spring Release</name>
+            <url>http://maven.springframework.org/release</url>
+        </repository>
+    </repositories>
 
 </project>
